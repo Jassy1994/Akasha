@@ -15,7 +15,6 @@ import java.util.List;
  */
 @Service
 public class CommentService {
-    Logger logger = LoggerFactory.getLogger(CommentService.class);
 
     @Autowired
     CommentDAO commentDAO;

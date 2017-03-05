@@ -17,7 +17,6 @@ import java.util.Map;
  */
 @Service
 public class InformationService {
-    Logger logger = LoggerFactory.getLogger(InformationService.class);
 
     @Autowired
     InformationDAO informationDAO;

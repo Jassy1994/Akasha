@@ -54,11 +54,12 @@ DROP TABLE IF EXISTS `mydatabase`.`comment_table`;
 CREATE TABLE `comment_table` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `user_id` INT NOT NULL,
-  `entity_type` VARCHAR(45) NOT NULL,
+  `entity_type` INT NOT NULL,
   `entity_id` INT NOT NULL,
   `content` TEXT NOT NULL,
   `agreement_num` INT NOT NULL DEFAULT 0,
   `comment_date` DATETIME NOT NULL,
+  `status` INT NOT NULL,
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   PRIMARY KEY (`id`));
 

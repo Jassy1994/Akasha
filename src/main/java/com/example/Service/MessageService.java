@@ -16,8 +16,6 @@ import java.util.List;
 @Service
 public class MessageService {
 
-    Logger logger= LoggerFactory.getLogger(MessageService.class);
-
     @Autowired
     MessageDAO messageDAO;
 

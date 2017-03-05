@@ -3,6 +3,7 @@ package com.example.Model;
 import java.util.Date;
 
 /**
+ * entityType:0-User;1-Information;2-Question;3-Answer;4-comment;
  * Created by Jassy on 2017/2/21.
  */
 public class Comment {

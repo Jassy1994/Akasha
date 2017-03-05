@@ -22,8 +22,6 @@ import java.util.UUID;
 @Service
 public class UserService {
 
-    private final static Logger logger = LoggerFactory.getLogger(UserService.class);
-
     @Autowired
     UserDAO userDAO;
 

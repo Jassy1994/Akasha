@@ -18,12 +18,12 @@ import java.util.Set;
  */
 @Service
 public class JedisAdapter implements InitializingBean {
-    private Logger logger = LoggerFactory.getLogger(JedisAdapter.class);
+    private final static Logger logger = LoggerFactory.getLogger(JedisAdapter.class);
     private JedisPool pool;
 
     @Override
     public void afterPropertiesSet() throws Exception {
-        pool = new JedisPool("redis://localhost:6379/10");
+        pool = new JedisPool("redis://localhost:6379");
     }
 
     /**
@@ -248,7 +248,6 @@ public class JedisAdapter implements InitializingBean {
 
     /**
      * 执行命令;
-     *
      * @param tx
      * @param jedis
      * @return

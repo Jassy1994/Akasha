@@ -1,6 +1,8 @@
 package com.example.async;
 
+import com.alibaba.fastjson.JSONObject;
 import com.example.util.JedisAdapter;
+import com.example.util.RedisKeyUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,7 +16,13 @@ public class EventProducer {
     JedisAdapter jedisAdapter;
 
     public boolean releaseEvent(EventModel eventModel){
-
-        return false;
+        try{
+            String json = JSONObject.toJSONString(eventModel);
+            String key= RedisKeyUtil.getEventQueueKey();
+            jedisAdapter.lpush(key,json);
+            return true;
+        }catch(Exception e) {
+            return false;
+        }
     }
 }

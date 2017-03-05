@@ -66,16 +66,16 @@ public class InitDatabaseTests {
             answer.setContent("666");
             answerDAO.addAnswer(answer);
         }
-        {
+        for(int i=1;i<15;i++) {
             Information information=new Information();
-            information.setAgreementNum(15);
-            information.setUserId(2);
-            information.setCommentNum(3);
-            information.setContent("Jassy!");
+            information.setAgreementNum(15+i);
+            information.setUserId(2+i);
+            information.setCommentNum(3+2*i);
+            information.setContent("Jassy!"+String.valueOf(i));
             information.setLink("http://www.baidu.com");
             Date date=new Date();
             information.setReleaseDate(date);
-            information.setTitle("Akasha");
+            information.setTitle("Akasha"+String.valueOf(i));
             informationDAO.addInformation(information);
         }
         {
@@ -87,6 +87,7 @@ public class InitDatabaseTests {
             comment.setEntityType(1);
             Date date=new Date();
             comment.setCommentDate(date);
+            comment.setStatus(1);
             commentDAO.addComment(comment);
         }
         System.out.println(simpleDateFormat.format(questionDAO.getQuestionByUserId(4).getAskDate()));

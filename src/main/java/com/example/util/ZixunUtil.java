@@ -13,6 +13,9 @@ import java.util.Map;
 public class ZixunUtil {
     private final static Logger logger = LoggerFactory.getLogger(ZixunUtil.class);
 
+    public static int SYSTEM_USERID = 1;
+    public static int ANONYMOUS_USERID = 2;
+
     public static String getJSONString(int code) {
         JSONObject json = new JSONObject();
         json.put("code", code);
@@ -27,16 +30,16 @@ public class ZixunUtil {
     }
 
     public static String getJSONString(int code, Map<String, Object> map) {
-        JSONObject json=new JSONObject();
-        json.put("code",code);
+        JSONObject json = new JSONObject();
+        json.put("code", code);
         //遍历map的写法;
-        for (Map.Entry<String ,Object>entry:map.entrySet()) {
-            json.put(entry.getKey(),entry.getValue());
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            json.put(entry.getKey(), entry.getValue());
         }
         return json.toJSONString();
     }
 
-    public static String MD5(String key){
+    public static String MD5(String key) {
         char hexDigits[] = {
                 '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'
         };
