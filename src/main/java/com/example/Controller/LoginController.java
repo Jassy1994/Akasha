@@ -1,7 +1,6 @@
 package com.example.Controller;
 
 import com.example.Service.UserService;
-import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -52,10 +51,11 @@ public class LoginController {
                     cookie.setMaxAge(5 * 24 * 3600);
                 }
                 response.addCookie(cookie);
-                if (StringUtils.isNotBlank(next)) {
+                /*if (StringUtils.isNotBlank(next)) {
                     return "redirect:" + next;
                 }
-                return "redirect:/";
+                return "redirect:/";*/
+                return " ";
             } else {
                 //打印错误信息;
                 model.addAttribute("msg", map.get("msg"));
@@ -87,10 +87,11 @@ public class LoginController {
                     cookie.setMaxAge(5 * 24 * 3600);
                 }
                 response.addCookie(cookie);
-                if (StringUtils.isNotBlank(next)) {
+                /*if (StringUtils.isNotBlank(next)) {
                     return "redirect:" + next;
                 }
-                return "redirect:/";
+                return "redirect:/";*/
+                return " ";
             } else {
                 model.addAttribute("msg", map.get("msg"));
                 return "login";

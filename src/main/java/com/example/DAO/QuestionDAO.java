@@ -4,6 +4,7 @@ import com.example.Model.Question;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 import static com.example.DAO.QuestionDAO.INSERT_FIELD;
 import static com.example.DAO.QuestionDAO.TABLE_NAME;
@@ -11,6 +12,7 @@ import static com.example.DAO.QuestionDAO.TABLE_NAME;
 /**
  * Created by Jassy on 2017/2/21.
  */
+@Repository
 @Mapper
 public interface QuestionDAO {
     String TABLE_NAME="question_table";

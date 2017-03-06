@@ -2,6 +2,7 @@ package com.example.DAO;
 
 import com.example.Model.LoginTicket;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import static com.example.DAO.LoginTicketDAO.INSERT_FIELD;
 import static com.example.DAO.LoginTicketDAO.TABLE_NAME;
@@ -11,6 +12,7 @@ import static com.example.DAO.LoginTicketDAO.TABLE_NAME;
  * description:
  */
 
+@Repository
 @Mapper
 public interface LoginTicketDAO {
 

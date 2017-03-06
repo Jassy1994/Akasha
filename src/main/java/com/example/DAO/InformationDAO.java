@@ -2,6 +2,7 @@ package com.example.DAO;
 
 import com.example.Model.Information;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import static com.example.DAO.InformationDAO.TABLE_NAME;
 /**
  * Created by Jassy on 2017/2/21.
  */
+@Repository
 @Mapper
 public interface InformationDAO {
 

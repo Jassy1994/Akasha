@@ -4,12 +4,14 @@ import com.example.Model.User;
 import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Select;
+import org.springframework.stereotype.Repository;
 
 /**
  * Created by Jassy on 2017/2/19.
  * description: 完成对user_table的数据库操作,将User模型封装起来;
  */
 
+@Repository
 @Mapper
 //Mapper说明和数据库一一匹配;
 public interface UserDAO {

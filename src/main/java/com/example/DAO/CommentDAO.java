@@ -2,6 +2,7 @@ package com.example.DAO;
 
 import com.example.Model.Comment;
 import org.apache.ibatis.annotations.*;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
@@ -9,6 +10,7 @@ import java.util.List;
 /**
  * Created by Jassy on 2017/2/21.
  */
+@Repository
 @Mapper
 public interface CommentDAO {
 
