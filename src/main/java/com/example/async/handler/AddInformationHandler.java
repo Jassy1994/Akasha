@@ -26,6 +26,6 @@ public class AddInformationHandler implements EventHandler {
 
     @Override
     public List<EventType> getSupportedEventTypes() {
-        return Arrays.asList(EventType.ADD_QUESTION);
+        return Arrays.asList(EventType.ADD_INFORMATION);
     }
 }

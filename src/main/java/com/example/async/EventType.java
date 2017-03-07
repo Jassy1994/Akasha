@@ -9,7 +9,7 @@ public enum EventType {
     AGREEMENT(1),
     COMMENT(2),
     MESSAGE(3),
-    ADD_QUESTION(4),
+    ADD_INFORMATION(4),
     FOLLOW(5),
     UNFOLLOW(6);
 
