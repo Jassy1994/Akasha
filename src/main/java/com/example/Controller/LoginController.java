@@ -1,6 +1,10 @@
 package com.example.Controller;
 
 import com.example.Service.UserService;
+import com.example.async.EventModel;
+import com.example.async.EventProducer;
+import com.example.async.EventType;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,6 +28,9 @@ public class LoginController {
 
     @Autowired
     UserService userService;
+
+    @Autowired
+    EventProducer eventProducer;
 
     private final static Logger logger = LoggerFactory.getLogger(LoginController.class);
 
@@ -51,11 +58,14 @@ public class LoginController {
                     cookie.setMaxAge(5 * 24 * 3600);
                 }
                 response.addCookie(cookie);
-                /*if (StringUtils.isNotBlank(next)) {
+
+                eventProducer.releaseEvent(new EventModel().setEventType(EventType.LOGIN)
+                        .setActorId((int)map.get("userId")).setExt("username",username));
+
+                if (StringUtils.isNotBlank(next)) {
                     return "redirect:" + next;
                 }
-                return "redirect:/";*/
-                return " ";
+                return "redirect:/";
             } else {
                 //打印错误信息;
                 model.addAttribute("msg", map.get("msg"));
@@ -73,7 +83,7 @@ public class LoginController {
         return "redirect:/";
     }
 
-    @RequestMapping(path = {"/register"}, method = {RequestMethod.POST})
+    @RequestMapping(path = {"/reg/"}, method = {RequestMethod.POST})
     public String register(Model model, @RequestParam("username") String username,
                            @RequestParam("password") String password,
                            @RequestParam(value = "next", required = false) String next,
@@ -87,11 +97,10 @@ public class LoginController {
                     cookie.setMaxAge(5 * 24 * 3600);
                 }
                 response.addCookie(cookie);
-                /*if (StringUtils.isNotBlank(next)) {
+                if (StringUtils.isNotBlank(next)) {
                     return "redirect:" + next;
                 }
-                return "redirect:/";*/
-                return " ";
+                return "redirect:/";
             } else {
                 model.addAttribute("msg", map.get("msg"));
                 return "login";
@@ -102,4 +111,11 @@ public class LoginController {
             return "login";
         }
     }
+
+    @RequestMapping(path = {"/reglogin"},method = {RequestMethod.POST,RequestMethod.GET})
+    public String regloginPage(Model model,@RequestParam(value = "next",required = false)String next){
+        model.addAttribute("next",next);
+        return "login";
+    }
+
 }
