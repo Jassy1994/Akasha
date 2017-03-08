@@ -5,7 +5,7 @@
     <sql id="table">feed_table</sql>
     <sql id="selectFields">id,user_id,type,feed_date,data
     </sql>
-    <select id="getLatestInformations" resultType="com.example.Model.Information">
+    <select id="selectUserFeeds" resultType="com.example.Model.Feed">
         SELECT
         <include refid="selectFields"/>
         FROM
@@ -13,7 +13,7 @@
 
         WHERE id &lt; #{maxId}
 
-        <if test="userId.size()!=0">
+        <if test="userIds.size()!=0">
             AND user_id IN
             <foreach item="item" index="index" collection="userIds" open="(" separator="," close=")">
                 #{item}
