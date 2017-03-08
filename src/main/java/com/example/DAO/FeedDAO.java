@@ -30,6 +30,6 @@ public interface FeedDAO {
     Feed getFeedById(int id);
 
     List<Feed> selectUserFeeds(@Param("maxId") int maxId,
-                               @Param("userIds") int userIds,
+                               @Param("userIds") List<Integer> userIds,
                                @Param("count") int count);
 }
