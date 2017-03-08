@@ -22,6 +22,7 @@ public class InformationService {
     InformationDAO informationDAO;
 
     public int releaseInformation(Information information) {
+        // TODO: 2017/3/8 sensitive words filter;
         return informationDAO.addInformation(information) > 0 ? information.getId() : 0;
     }
 
