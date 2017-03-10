@@ -25,13 +25,13 @@ public interface CommentDAO {
     @Select({"select * from ", TABLE_NAME, " where id=#{id}"})
     Comment getCommentById(int id);
 
-    @Select({"select count(*) from ", TABLE_NAME, " where entity_type=#{entityType} and entity_id=#{entityId}"})
-    int getCommentCountByEntity(int entityType, int entityId);
+    @Select({"select count(id) from ", TABLE_NAME, " where entity_type=#{entityType} and entity_id=#{entityId}"})
+    int getCommentCountByEntity(@Param("entityType") int entityType, @Param("entityId") int entityId);
 
     @Select({"select count(*) from ", TABLE_NAME, " where user_id=#{userId}"})
     int getCommentCountByUser(int userId);
 
-    @Select({"select * from ", TABLE_NAME, " where entity_type=#{entity_type} and entity_id=#{entityId}"})
+    @Select({"select * from ", TABLE_NAME, " where entity_type=#{entityType} and entity_id=#{entityId}"})
     List<Comment> getCommentByEntity(int entityType, int EntityId);
 
     @Update({"update ", TABLE_NAME, " set status=#{status} where id=#{id}"})
