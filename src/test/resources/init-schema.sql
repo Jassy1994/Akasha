@@ -63,5 +63,14 @@ CREATE TABLE `comment_table` (
   UNIQUE INDEX `id_UNIQUE` (`id` ASC),
   PRIMARY KEY (`id`));
 
+DROP TABLE IF EXISTS `mydatabase`.`login_ticket_table`;
+CREATE TABLE `mydatabase`.`login_ticket_table` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `user_id` INT NULL,
+  `expired` DATETIME NULL,
+  `is_valid_status` TINYINT NOT NULL DEFAULT 0,
+  `ticket` TEXT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC));
 
 
