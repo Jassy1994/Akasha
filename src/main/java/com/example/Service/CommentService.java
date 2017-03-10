@@ -27,19 +27,19 @@ public class CommentService {
         commentDAO.updateCommentById(1, id);
     }
 
-    public int addComment(Comment comment){
+    public int addComment(Comment comment) {
         return commentDAO.addComment(comment);
     }
 
-    public int getCommentNumByEntity(int entityType,int entityId){
+    public int getCommentNumByEntity(int entityType, int entityId) {
         return commentDAO.getCommentCountByEntity(entityType, entityId);
     }
 
-    public int getCommentNumByUser(int userId){
+    public int getCommentNumByUser(int userId) {
         return commentDAO.getCommentCountByUser(userId);
     }
 
-    public List<Comment> getCommentByEntity(int entityType,int entityId){
+    public List<Comment> getCommentByEntity(int entityType, int entityId) {
         return commentDAO.getCommentByEntity(entityType, entityId);
     }
 
