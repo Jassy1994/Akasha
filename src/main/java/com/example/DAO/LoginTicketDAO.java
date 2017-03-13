@@ -27,6 +27,9 @@ public interface LoginTicketDAO {
     @Select({"select * from ", TABLE_NAME, " where id=#{id}"})
     LoginTicket getTicketById(int id);
 
+    @Select({"select * from ",TABLE_NAME, " where ticket=#{ticket}"})
+    LoginTicket selectByTicket(String ticket);
+
     @Update({"update ", TABLE_NAME, " set is_valid_status=#{isValidStatus} where ticket=#{ticket}"})
     void updateStatus(@Param("ticket") String ticket, @Param("isValidStatus") boolean isValidStatus);
 }
