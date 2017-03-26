@@ -39,6 +39,13 @@ public class CommentController {
     @Autowired
     HostHolder hostHolder;
 
+    /**
+     * 现在的comment只能评论资讯,希望修改为各种实体;
+     * @param entityType
+     * @param entityId
+     * @param content
+     * @return
+     */
     @RequestMapping(path = {"addComment"},method = RequestMethod.POST)
     public String addComment(@RequestParam("entityType")int entityType,
                              @RequestParam("entityId")int entityId,
@@ -55,7 +62,6 @@ public class CommentController {
             comment.setEntityType(entityType);
             comment.setEntityId(entityId);
             commentService.addComment(comment);
-
             int count=commentService.getCommentNumByEntity(entityType,entityId);
             // TODO: 2017/3/7 添加针对不同实体的处理方法;添加通过entityType和entityId得到entityOwnerId的方法;
             eventProducer.releaseEvent(new EventModel().setEventType(EventType.COMMENT)
