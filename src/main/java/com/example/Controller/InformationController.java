@@ -68,8 +68,8 @@ public class InformationController {
             vo.set("user", userService.selectById(comment.getUserId()));
             comments.add(vo);
         }
-
         model.addAttribute("comments", comments);
+
         List<ViewObject> followers = new ArrayList<>();
         List<Integer> users = followService.getFollowers(EntityType.ENTITY_INFORMATION, id, 10);
         for (int userId : users) {
